@@ -9,8 +9,4 @@
     <PackageReference Include="Portable.Xaml" Version="0.23.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="EasyPdfComponents\" />
-  </ItemGroup>
-
 </Project>

@@ -1,0 +1,10 @@
+﻿<EDocument xmlns="clr-namespace:EasyPdf;assembly=EasyPdf">
+
+    <EPage>
+        <EParagraph>
+            <EText FontColor="#FF0000" >Hello World!!</EText>
+        </EParagraph>
+    </EPage>
+    
+</EDocument>
+<!--{Binding Source={x:Static local:Example.Name}}-->
