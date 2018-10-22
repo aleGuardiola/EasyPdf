@@ -4,7 +4,7 @@
         <EParagraph>            
             <EText BackgroundColor="Black" FontColor="Red">Hello</EText>
             <EText FontColor="Blue" Bold="True" Italic="True" Text=" World"></EText>
-            <EText FontColor="Pink" Bold="True" Italic="True" Text="!!!!"></EText>
+            <EText FontColor="Pink" Bold="True" Italic="True" Text="!!!!!!"></EText>
         </EParagraph> 
     </EPage>
     <EPage>`
