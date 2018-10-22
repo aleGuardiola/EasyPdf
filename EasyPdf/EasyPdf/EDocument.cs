@@ -19,6 +19,9 @@ namespace EasyPdf
         {
             if (Exist(nameof(BackgroundColor)))
                 pdfDoc.SetBackgroundColor(Helpers.TypeConverter.ToITextColor(BackgroundColor));
+                       
+            if (Children.Count > 0)
+                Children[0].FirstPage = true;
 
             base.Build(pdfDoc);
         }

@@ -8,18 +8,22 @@ using Portable.Xaml.Markup;
 namespace EasyPdf
 {
     [ContentPropertyAttribute("Content")]
-    public class EParagraph : PdfXamlObject
+    public class EParagraph : EBlockElement
     {
-        public EText Content { get; set; }
+        public IList<EText> Content { get; }
 
         public EParagraph()
         {
-            Content = new EText();
+            Content = new List<EText>();
         }
 
         protected internal override void Build(Document pdfDoc)
         {
-            var paragraph = new Paragraph(Content.GetText());
+            var paragraph = new Paragraph();
+            BuildElement<Paragraph>(paragraph);
+
+            foreach (var content in Content)
+                paragraph.Add(content.GetText());
 
             pdfDoc.Add(paragraph);
 

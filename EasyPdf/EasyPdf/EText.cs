@@ -10,35 +10,61 @@ using Portable.Xaml.Markup;
 
 namespace EasyPdf
 {
-    [ContentPropertyAttribute("Content"), TypeConverter(typeof(ETextTypeConvert))]
-    public class EText : PdfXamlObject
+    [ContentPropertyAttribute("Text"), TypeConverter(typeof(ETextTypeConvert))]
+    public class EText : Element
     {
-        public string Content { get; set; }
+        public string Text { get; set; }
 
-        public Color FontColor
+        public float HorizontalScaling
         {
-            get => (Color)Get(nameof(FontColor));
-            set => Set(nameof(FontColor), value);
+            get => (float)Get(nameof(HorizontalScaling));
+            set => Set(nameof(HorizontalScaling), value);
+        }
+        
+        public float SkewAlpha
+        {
+            get => (float)Get(nameof(SkewAlpha));
+            set => Set(nameof(SkewAlpha), value);
+        }
+
+        public float SkewBeta
+        {
+            get => (float)Get(nameof(SkewBeta));
+            set => Set(nameof(SkewBeta), value);
+        }
+        
+        public float TextRise
+        {
+            get => (float)Get(nameof(TextRise));
+            set => Set(nameof(TextRise), value);
         }
 
         public EText()
         {
-            Content = "";
+            Text = "";
         }
 
         internal Text GetText()
         {
-            var text = new Text(Content);
+            var text = new Text(Text);
+            BuildElement<Text>(text);
+            
+            if(Exist(nameof(SkewAlpha)) || Exist(nameof(SkewBeta)))
+            {
+                var alpha = Exist(nameof(SkewAlpha)) ? SkewAlpha : 0f;
+                var beta = Exist(nameof(SkewBeta)) ? SkewBeta : 0f;
+            }
 
-            if (Exist(nameof(FontColor)))
-                text.SetFontColor(Helpers.TypeConverter.ToITextColor(FontColor));
+            if(Exist(nameof(TextRise)))
+            {
+                text.SetTextRise(TextRise);
+            }
 
             return text;
         }
 
         protected internal override void Build(Document pdfDoc)
-        {
-            
+        {               
             base.Build(pdfDoc);
         }
     }
@@ -53,7 +79,7 @@ namespace EasyPdf
         public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
         {
             var v = value as string;
-            return new EText() { Content = v };
+            return new EText() { Text = v };
         }
 
     }

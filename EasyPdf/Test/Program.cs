@@ -14,7 +14,7 @@ namespace Test
         {
             var assembly = Assembly.GetExecutingAssembly();
             var resourceName = "Test.Example.xaml";
-
+              
             TimeSpan diff;
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
@@ -24,26 +24,7 @@ namespace Test
 
                 var currentTime = DateTime.Now;
                 var myResult = XamlServices.Parse(result) as EDocument;
-                //var myResult = new EDocument()
-                //{
-                //    Children =
-                //    {
-                //        new EPage()
-                //        {
-                //            Children =
-                //            {
-                //                new EParagraph()
-                //                {
-                //                    Content = new EText()
-                //                    {
-                //                        Content = "Hola"
-                //                    }
-                //                }
-                //            }
-                //        }
-                //    }
-                //};
-
+                
                 diff = DateTime.Now - currentTime;
 
                // myResult.GetPdf();

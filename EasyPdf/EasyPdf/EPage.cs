@@ -10,11 +10,17 @@ using iText.Layout.Properties;
 namespace EasyPdf
 {
     public class EPage : PdfXamlObjectContainer<PdfXamlObject>
-    {       
+    {
+        internal bool FirstPage = false; 
+
         protected internal override void Build(Document pdfDoc)
         {
-            var page = new AreaBreak(AreaBreakType.NEXT_PAGE);
-            pdfDoc.Add(page);
+            if(!FirstPage)
+            {
+                var page = new AreaBreak(AreaBreakType.NEXT_PAGE);
+                pdfDoc.Add(page);
+            }
+           // iText.Layout.Element.LineSeparator
             base.Build(pdfDoc);
         }
     }

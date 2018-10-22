@@ -1,8 +1,21 @@
 ﻿<EDocument xmlns="clr-namespace:EasyPdf;assembly=EasyPdf">
 
     <EPage>
-        <EParagraph>
-            <EText FontColor="#FF0000" >Hello World!!</EText>
+        <EParagraph>            
+            <EText BackgroundColor="Black" FontColor="Red">Hello</EText>
+            <EText FontColor="Blue" Bold="True" Italic="True" Text=" World"></EText>
+            <EText FontColor="Pink" Bold="True" Italic="True" Text="!!!!"></EText>
+        </EParagraph>
+    </EPage>
+    <EPage>`
+        <EParagraph Height="100" >
+            <EText 
+                Bold="True" 
+                BackgroundColor="Black" 
+                FontSize="50"
+                FontColor="White" >
+                Hello World2!!
+            </EText>
         </EParagraph>
     </EPage>
     
