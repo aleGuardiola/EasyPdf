@@ -1,8 +1,10 @@
-﻿<EDocument xmlns="clr-namespace:EasyPdf;assembly=EasyPdf">
+﻿<EDocument xmlns="clr-namespace:EasyPdf;assembly=EasyPdf" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           x:Class="Test.Example">
 
-    <EPage>
+    <EPage x:Name="Page">
         <EParagraph>            
-            <EText BackgroundColor="Black" FontColor="Red">Hello</EText>
+            <EText BackgroundColor="{x:Binding{}}" FontColor="Red">Hello</EText>
             <EText FontColor="Blue" Bold="True" Italic="True" Text=" World"></EText>
             <EText FontColor="Pink" Bold="True" Italic="True" Text="!!!!!!"></EText>
         </EParagraph> 

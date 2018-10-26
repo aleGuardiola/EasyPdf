@@ -10,7 +10,19 @@ namespace EasyPdf
     public abstract class PdfXamlObject
     {
         IDictionary<string, object> _propContainer;
+        
+        public PdfXamlObject(string xaml)
+        {
+
+            Initialize();
+        }
+
         public PdfXamlObject()
+        {
+            Initialize();
+        }
+
+        void Initialize()
         {
             _propContainer = new Dictionary<string, object>();
         }
