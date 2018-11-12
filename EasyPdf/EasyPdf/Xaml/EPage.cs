@@ -7,7 +7,7 @@ using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
     public class EPage : PdfXamlObjectContainer<PdfXamlObject>
     {
@@ -15,6 +15,7 @@ namespace EasyPdf
 
         protected internal override void Build(Document pdfDoc)
         {
+                        
             if(!FirstPage)
             {
                 var page = new AreaBreak(AreaBreakType.NEXT_PAGE);

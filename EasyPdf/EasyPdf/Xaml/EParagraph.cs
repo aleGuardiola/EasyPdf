@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using EasyPdf.Collections;
 using iText.Layout;
 using iText.Layout.Element;
 using Portable.Xaml.Markup;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
     [ContentPropertyAttribute("Content")]
     public class EParagraph : EBlockElement
@@ -14,7 +15,7 @@ namespace EasyPdf
 
         public EParagraph()
         {
-            Content = new List<EText>();
+            Content = new ChildrenContainerList<EText>(this);
         }
 
         protected internal override void Build(Document pdfDoc)

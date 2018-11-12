@@ -1,21 +1,19 @@
 ﻿using iText.Layout;
-using Portable.Xaml.Markup;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
-    [ContentPropertyAttribute("Children")]
-    public abstract class PdfXamlObjectContainer<T> : PdfXamlObject where T : PdfXamlObject
+    public class EBlockElementContainer<T> : EBlockElement where T : PdfXamlObject
     {
         public IList<T> Children { get; }
 
-        public PdfXamlObjectContainer()
+        public EBlockElementContainer()
         {
             Children = new List<T>();
         }
-
+        
         protected internal override void Build(Document pdfDoc)
         {
             base.Build(pdfDoc);

@@ -1,0 +1,15 @@
+﻿<EParagraph xmlns="https://github.com/aleGuardiola/EasyPdf"            
+           xmlns:local="clr-namespace:Test;assembly=Test"  
+           xmlns:e="https://github.com/aleGuardiola/EasyPdf/Extensions"
+           xmlns:x="clr-namespace:Portable.Xaml.Markup;assembly=Portable.Xaml"
+           >
+    <EText Text="{e:Use Member=Title}">
+        
+    </EText>
+
+    <EText BackgroundColor="Blue"  Text="{e:Use Member=Subtitle}">
+         
+    </EText>
+
+</EParagraph>
+<!--{Binding Source={x:Static local:Example.Name}}-->

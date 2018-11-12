@@ -8,12 +8,16 @@ using iText.Layout;
 using iText.Layout.Element;
 using Portable.Xaml.Markup;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
+
     [ContentPropertyAttribute("Text"), TypeConverter(typeof(ETextTypeConvert))]
     public class EText : Element
     {
-        public string Text { get; set; }
+        public string Text {
+            get => (string)Get(nameof(Text));
+            set => Set(nameof(Text), value);
+        }
 
         public float HorizontalScaling
         {
@@ -46,6 +50,8 @@ namespace EasyPdf
 
         internal Text GetText()
         {
+            SetValuesUsing();
+
             var text = new Text(Text);
             BuildElement<Text>(text);
             

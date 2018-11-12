@@ -1,22 +1,26 @@
-﻿<EDocument xmlns="clr-namespace:EasyPdf;assembly=EasyPdf" 
-           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-           x:Class="Test.Example">
-
-    <EPage x:Name="Page">
-        <EParagraph>            
-            <EText BackgroundColor="{x:Binding{}}" FontColor="Red">Hello</EText>
+﻿<EDocument xmlns="https://github.com/aleGuardiola/EasyPdf"            
+           xmlns:local="clr-namespace:Test;assembly=Test"  
+           xmlns:e="https://github.com/aleGuardiola/EasyPdf/Extensions"
+           xmlns:x="clr-namespace:Portable.Xaml.Markup;assembly=Portable.Xaml"
+           >
+    <EPage>
+        <local:Header Model="{e:Use Member=Header}">
+            
+        </local:Header>
+        <EParagraph>
+            <EText BackgroundColor="{e:Use Member=BackgroundColor}" FontColor="Red" Text="{e:Use Member=Name}"></EText>
             <EText FontColor="Blue" Bold="True" Italic="True" Text=" World"></EText>
             <EText FontColor="Pink" Bold="True" Italic="True" Text="!!!!!!"></EText>
         </EParagraph> 
     </EPage>
-    <EPage>`
+    <EPage>
         <EParagraph Height="100" >
             <EText 
                 Bold="True" 
                 BackgroundColor="Black" 
                 FontSize="50"
-                FontColor="White" >
-                Hello World2!!
+                FontColor="White"                
+                >                
             </EText>
         </EParagraph>
     </EPage>

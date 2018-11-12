@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
     public enum BaseDirection
     {

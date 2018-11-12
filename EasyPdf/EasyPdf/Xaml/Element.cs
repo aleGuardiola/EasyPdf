@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
     public class Element : PdfXamlObject
     {

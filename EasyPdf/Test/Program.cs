@@ -1,9 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using EasyPdf;
+using EasyPdf.Xaml;
 using Portable.Xaml;
 
 namespace Test
@@ -12,83 +15,56 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "Test.Example.xaml";
-              
-            TimeSpan diff;
+            var startTime = DateTime.Now;            
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
+            //Parallel.ForEach(new bool[10000],(v)=>{
+            //    var example = new Example();
+            //    example.Model = new TestModel()
+            //    {
+            //        Header = new HeaderModel()
+            //        {
+            //            Title = "Bass Insurance",
+            //            Subtitle = "Form 1"
+            //        },
+            //        Name = "Alejandro",
+            //        BackgroundColor = Color.Blue
+            //    };
+            //    example.GetPdf();
+            //});
+            
+            for(int i = 0; i < 10000; i++)
             {
-                string result = reader.ReadToEnd();
-
-                var currentTime = DateTime.Now;
-                var myResult = XamlServices.Parse(result) as EDocument;
-                
-                diff = DateTime.Now - currentTime;
-
-               // myResult.GetPdf();
-                File.WriteAllBytes(
-                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "test.pdf"),
-                    myResult.GetPdf().ToArray());
+                var example = new Example();
+                example.Model = new TestModel()
+                {
+                    Header = new HeaderModel()
+                    {
+                        Title = "Bass Insurance",
+                        Subtitle = "Form 1"
+                    },
+                    Name = "Alejandro",
+                    BackgroundColor = Color.Blue
+                };
+                example.GetPdf();
             }
 
-            Console.WriteLine("Time parsing: {0} Milliseconds", diff.Milliseconds);
+            Console.WriteLine("totalTime: {0}", (DateTime.Now - startTime).TotalSeconds);
             Console.Read();
         }
     }
 
-    [TypeConverter(typeof(MyClassConverter))]
-    public class Binding
+    public class HeaderModel
     {
-        public string Source{ get; set; }
-
-        //public string GetResult()
-        //{
-            
-        //}
-
+        public string Title { get; set; }
+        public string Subtitle { get; set; }
     }
 
-    public class MyClassConverter : TypeConverter
+    public class TestModel
     {
-         public override bool CanConvertTo(ITypeDescriptorContext context, Type destinationType)
-        {
-            return true;
-        }
+        public HeaderModel Header{ get; set; }
 
-        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, Type destinationType)
-        {
-            return "Alejo";
-        }
-
-        public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-        {
-            return true;
-        }
-
-        public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
-        {
-            return new Binding() { Source = "Tu madre" };
-        }
-               
-
-    }
-
-    public class XamlName
-    {
-        string name;
-        public string Name {
-            get=>name;
-            set {
-                name = value;
-            }
-        }
-    }
-
-    public static class Example
-    {
-        public static string Name = "Alejandro";
+        public string Name { get; set; }
+        public Color BackgroundColor { get; set; }
     }
 
 

@@ -3,7 +3,7 @@ using iText.Layout;
 using Portable.Xaml;
 using System.IO;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
     public abstract class EasyPdfDocument
     {

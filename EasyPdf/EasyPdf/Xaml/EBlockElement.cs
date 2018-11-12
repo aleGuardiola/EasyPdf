@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
     public class EBlockElement : PdfXamlObject
     {

@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Text;
 using iText.Layout;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
     [Portable.Xaml.Markup.ContentPropertyAttribute("Children")]
     public class EDocument : PdfXamlObjectContainer<EPage>

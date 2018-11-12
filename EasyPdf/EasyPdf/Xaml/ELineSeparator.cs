@@ -4,7 +4,7 @@ using System.Text;
 using iText.Layout;
 using iText.Layout.Element;
 
-namespace EasyPdf
+namespace EasyPdf.Xaml
 {
     public class ELineSeparator : EBlockElement
     {

@@ -7,9 +7,13 @@
 
   <ItemGroup>
     <None Remove="Example.xaml" />
+    <None Remove="Header.xaml" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Header.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="Example.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
