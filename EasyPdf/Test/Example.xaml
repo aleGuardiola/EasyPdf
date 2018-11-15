@@ -4,7 +4,7 @@
            xmlns:x="clr-namespace:Portable.Xaml.Markup;assembly=Portable.Xaml"
            >
     <EPage>
-        <local:Header Model="{e:Use Member=Header}">
+        <local:Header Model="Header">
             
         </local:Header>
         <EParagraph>

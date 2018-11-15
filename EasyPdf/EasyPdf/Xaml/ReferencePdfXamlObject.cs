@@ -23,10 +23,11 @@ namespace EasyPdf.Xaml
 
         protected abstract void Initialize(PdfBuilder builder);
         
-        protected internal override void Build(Document pdfDoc)
+        protected internal override void OnBuild(Document pdfDoc, object model)
         {
-            base.Build(pdfDoc);
-            Root.Build(pdfDoc);            
+            model = GetModel(model);
+            base.OnBuild(pdfDoc, model);
+            Root.OnBuild(pdfDoc, model);            
         }
 
 

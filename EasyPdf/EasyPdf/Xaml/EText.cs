@@ -16,31 +16,31 @@ namespace EasyPdf.Xaml
     {
         public string Text {
             get => (string)Get(nameof(Text));
-            set => Set(nameof(Text), value);
+            set => Set(value);
         }
 
         public float HorizontalScaling
         {
-            get => (float)Get(nameof(HorizontalScaling));
-            set => Set(nameof(HorizontalScaling), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public float SkewAlpha
         {
-            get => (float)Get(nameof(SkewAlpha));
-            set => Set(nameof(SkewAlpha), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float SkewBeta
         {
-            get => (float)Get(nameof(SkewBeta));
-            set => Set(nameof(SkewBeta), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public float TextRise
         {
-            get => (float)Get(nameof(TextRise));
-            set => Set(nameof(TextRise), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public EText()
@@ -48,17 +48,15 @@ namespace EasyPdf.Xaml
             Text = "";
         }
 
-        internal Text GetText()
+        internal Text GetText(object model)
         {
-            SetValuesUsing();
-
-            var text = new Text(Text);
-            BuildElement<Text>(text);
+            var text = new Text((string)Get(nameof(Text), model) ?? "" );
+            BuildElement<Text>(text, model);
             
             if(Exist(nameof(SkewAlpha)) || Exist(nameof(SkewBeta)))
             {
-                var alpha = Exist(nameof(SkewAlpha)) ? SkewAlpha : 0f;
-                var beta = Exist(nameof(SkewBeta)) ? SkewBeta : 0f;
+                var alpha = Exist(nameof(SkewAlpha)) ? Get(nameof(SkewAlpha), model) : 0f;
+                var beta = Exist(nameof(SkewBeta)) ? Get(nameof(SkewBeta), model) : 0f;
             }
 
             if(Exist(nameof(TextRise)))
@@ -69,9 +67,9 @@ namespace EasyPdf.Xaml
             return text;
         }
 
-        protected internal override void Build(Document pdfDoc)
+        protected internal override void OnBuild(Document pdfDoc, object model)
         {               
-            base.Build(pdfDoc);
+            base.OnBuild(pdfDoc, model);
         }
     }
 

@@ -14,13 +14,14 @@ namespace EasyPdf.Xaml
             Children = new List<T>();
         }
         
-        protected internal override void Build(Document pdfDoc)
+        protected internal override void OnBuild(Document pdfDoc, object model)
         {
-            base.Build(pdfDoc);
+            model = GetModel(model);
+            base.OnBuild(pdfDoc, model);
 
             //Build for every children
             foreach (var child in Children)
-                child.Build(pdfDoc);
+                child.OnBuild(pdfDoc, model);
         }
 
     }

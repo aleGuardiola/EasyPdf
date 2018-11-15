@@ -1,20 +1,22 @@
-﻿using iText.Kernel.Pdf;
+﻿using EasyPdf.Core;
+using EasyPdf.Exceptions;
+using iText.Kernel.Pdf;
 using iText.Layout;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace EasyPdf.Xaml
 {
     public abstract class PdfXamlObject   
     {
-        IDictionary<string, object> _propContainer;
-        internal List<(string, string)> Bindings = new List<(string, string)>();
-
-        public object Model { get => Get(nameof(Model)); set => Set(nameof(Model), value); }
+        IDictionary<string, PdfXamlObjectProperty> _propContainer;
+        
+        public string Model { get => (string)Get(); set => Set(value); }
 
         public PdfXamlObject Parent { get; internal set; }
 
@@ -30,126 +32,116 @@ namespace EasyPdf.Xaml
 
         void Initialize()
         {
-            _propContainer = new Dictionary<string, object>();
+            _propContainer = new Dictionary<string, PdfXamlObjectProperty>();
         }
 
-        protected void Set(string prop, object value)
+        protected void Set( object value, [CallerMemberName]string prop = "" )
         {
-            _propContainer[prop] = value;
+            if(_propContainer.ContainsKey(prop))
+            {
+                _propContainer[prop].SetValue(value);
+            }
+            else
+            {
+                var property = new PdfXamlObjectProperty(value.GetType(), prop);
+                property.SetValue(value);
+                _propContainer[prop] = property;
+            }
         }
 
-        protected object Get(string prop)
+        internal void Set(string prop, string bindingValue, Type type)
         {
-            return _propContainer[prop];            
+            if (_propContainer.ContainsKey(prop))
+            {
+                _propContainer[prop].SetValue(bindingValue);
+            }
+            else
+            {
+                var property = new PdfXamlObjectProperty(type, prop);
+                property.SetValue(bindingValue);
+                _propContainer[prop] = property;
+            }
         }
 
-        protected bool Exist(string prop)
+        protected object Get([CallerMemberName]string prop="")
+        {
+            return _propContainer[prop].GetValue(null);            
+        }
+
+        protected object Get(string prop, object model)
+        {
+            return _propContainer[prop].GetValue(model);
+        }
+
+        protected bool Exist([CallerMemberName]string prop="")
         {
             return _propContainer.ContainsKey(prop);
         }
 
-        protected void Remove(string prop)
+        protected void Remove([CallerMemberName]string prop="")
         {
             _propContainer.Remove(prop);
         }
 
-        public MemoryStream GetPdf()
+        public byte[] GetPdf(object model)
         {
-            MemoryStream stream = new MemoryStream();
-            var pdfDoc = new PdfDocument(new PdfWriter(stream));
-            var document = new Document(pdfDoc);
-            Build(document);
-            document.Close();
-            return stream;
-        }
-               
-        protected internal virtual void Build(Document pdfDoc)
-        {
-            SetValuesUsing();
-        }
+#if DEBUG
+            var startBuilding = DateTime.Now;
+#endif
 
-        protected void SetValuesUsing()
-        {
-            foreach (var bind in Bindings)
+            using (MemoryStream stream = new MemoryStream())
             {
-                setBind(bind);
+                using (var writer = new PdfWriter(stream))
+                {
+                    var pdfDoc = new PdfDocument(writer);
+                    var document = new Document(pdfDoc);
+                    OnBuild(document, model);
+                    document.Close();
+                }
+#if DEBUG
+                Console.WriteLine("buildingTime: {0}", (DateTime.Now - startBuilding).TotalSeconds);
+#endif
+                return stream.ToArray();
             }
+
+
+            
+
         }
-
-        private void setBind((string, string) b)
+        
+        public object GetModel(object model)
         {
-
-            var member = b.Item2;
-
-            if (b.Item1 == nameof(Model))
-                Model = null;
-
-            object model;
-            PdfXamlObject node = this;
-
-            do
-            {
-                if (node == null)
-                    throw new NullReferenceException("Model is null");
-
-                model = node.Exist(nameof(Model)) ? node.Model : null;
-                node = node.Parent;
-
-            } while(model == null);
-
-            var members = member.Split('.');
-
-            for(int i = 0; i < members.Length-1; i++)
-            {
-                var prop = getProperty(model.GetType(), members[i]);
-                model = prop.GetValue(model);
-                member = members[i+1];
-            }                
-
-            var property = getProperty(model.GetType(), member);
-            var targetProperty = getProperty(this.GetType(), b.Item1);
-
-            if (targetProperty.PropertyType == property.PropertyType)
-            {
-                var value = property.GetValue(model);
-                Set(targetProperty.Name, value);
-            }
+            if ( !Exist(nameof(Model)))
+                return model;
             else
             {
-                var val = property.GetValue(model);
-                var converter = TypeDescriptor.GetConverter(targetProperty.PropertyType);
+                var m = (string)Get(nameof(Model), model);
+                if (string.IsNullOrEmpty(m) || m == ".")
+                    return model;
 
-                if (!converter.CanConvertFrom(property.PropertyType))
+                var path = m.Split('.');
+
+                var type = model.GetType();
+
+                foreach (var name in path)
                 {
-                    try
-                    {
-                        MethodInfo castMethod = this.GetType().GetMethod("Cast").MakeGenericMethod(targetProperty.PropertyType);
-                        object castedObject = castMethod.Invoke(this, new object[] { val });
+                    var propInfo = type.GetProperty(name);
 
-                        Set(targetProperty.Name, castedObject);
-                        return;
-                    }
-                    catch(Exception e)
-                    {
-                        throw new InvalidCastException(string.Format("Cant convert from the member: {0} to the member: {1}", member, targetProperty.Name));
-                    }
+                    if (propInfo == null)
+                        throw new MemberNotFoundException(name, type);
+
+                    model = propInfo.GetValue(model);
+                    type = model.GetType();
                 }
-                    
-                var value = converter.ConvertFrom(val);
-                Set(targetProperty.Name, value);
+
+                return model;
             }
-
         }
 
-        public T Cast<T>(object o)
+        protected internal virtual void OnBuild(Document pdfDoc, object model)
         {
-            return (T)o;
-        }
-
-        static PropertyInfo getProperty(Type objectType, string prop)
-        {
-            return objectType.GetProperty(prop);
-        }
+            
+        }  
 
     }
 

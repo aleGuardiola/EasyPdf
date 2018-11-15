@@ -18,17 +18,18 @@ namespace EasyPdf.Xaml
             Content = new ChildrenContainerList<EText>(this);
         }
 
-        protected internal override void Build(Document pdfDoc)
+        protected internal override void OnBuild(Document pdfDoc, object model)
         {
+            model = GetModel(model);
+            base.OnBuild(pdfDoc, model);
+
             var paragraph = new Paragraph();
-            BuildElement<Paragraph>(paragraph);
+            BuildElement<Paragraph>(paragraph, model);
 
             foreach (var content in Content)
-                paragraph.Add(content.GetText());
+                paragraph.Add(content.GetText(model));
 
             pdfDoc.Add(paragraph);
-
-            base.Build(pdfDoc);
         }
     }
 }

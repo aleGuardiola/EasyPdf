@@ -9,236 +9,237 @@ namespace EasyPdf.Xaml
     {
         public float Height
         {
-            get => (float)Get(nameof(Height));
-            set => Set(nameof(Height), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public bool KeepTogether
         {
-            get => (bool)Get(nameof(KeepTogether));
-            set => Set(nameof(KeepTogether), value);
+            get => (bool)Get();
+            set => Set(value);
         }
 
         public bool KeepWithNext
         {
-            get => (bool)Get(nameof(KeepWithNext));
-            set => Set(nameof(KeepWithNext), value);
+            get => (bool)Get();
+            set => Set(value);
         }
         
         public float Margin
         {
-            get => (float)Get(nameof(Margin));
-            set => Set(nameof(Margin), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float MarginBottom
         {
-            get => (float)Get(nameof(MarginBottom));
-            set => Set(nameof(MarginBottom), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float MarginLeft
         {
-            get => (float)Get(nameof(MarginLeft));
-            set => Set(nameof(MarginLeft), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public float MarginRight
         {
-            get => (float)Get(nameof(MarginRight));
-            set => Set(nameof(MarginRight), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public float MarginTop
         {
-            get => (float)Get(nameof(MarginTop));
-            set => Set(nameof(MarginTop), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public float MaxHeight
         {
-            get => (float)Get(nameof(MaxHeight));
-            set => Set(nameof(MaxHeight), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float MaxWidth
         {
-            get => (float)Get(nameof(MaxWidth));
-            set => Set(nameof(MaxWidth), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float MinHeight
         {
-            get => (float)Get(nameof(MinHeight));
-            set => Set(nameof(MinHeight), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float MinWidth
         {
-            get => (float)Get(nameof(MinWidth));
-            set => Set(nameof(MinWidth), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float Padding
         {
-            get => (float)Get(nameof(Padding));
-            set => Set(nameof(Padding), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public float PaddingBottom
         {
-            get => (float)Get(nameof(PaddingBottom));
-            set => Set(nameof(PaddingBottom), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float PaddingLeft
         {
-            get => (float)Get(nameof(PaddingLeft));
-            set => Set(nameof(PaddingLeft), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public float PaddingRight
         {
-            get => (float)Get(nameof(PaddingRight));
-            set => Set(nameof(PaddingRight), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float PaddingTop
         {
-            get => (float)Get(nameof(PaddingTop));
-            set => Set(nameof(PaddingTop), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public double RotationAngle
         {
-            get => (double)Get(nameof(RotationAngle));
-            set => Set(nameof(RotationAngle), value);
+            get => (double)Get();
+            set => Set(value);
         }
                 
         public float SpacingRatio
         {
-            get => (float)Get(nameof(SpacingRatio));
-            set => Set(nameof(SpacingRatio), value);
+            get => (float)Get();
+            set => Set(value);
         }
         
         public VerticalAlignment VerticalAlignment
         {
-            get => (VerticalAlignment)Get(nameof(VerticalAlignment));
-            set => Set(nameof(VerticalAlignment), value);
+            get => (VerticalAlignment)Get();
+            set => Set(value);
         }
         
         public float Width
         {
-            get => (float)Get(nameof(Width));
-            set => Set(nameof(Width), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
-        protected void BuildElement<T>(BlockElement<T> e) where T : IElement
+        protected void BuildElement<T>(BlockElement<T> e, object model) where T : IElement
         {
+
             if(Exist(nameof(Height)))
             {
-                e.SetHeight(Height);
+                e.SetHeight( (float)Get(nameof(Height), model) );
             }
 
             if(Exist(nameof(KeepTogether)))
             {
-                e.SetKeepTogether(KeepTogether);
+                e.SetKeepTogether( (bool)Get(nameof(KeepTogether), model) );
             }
 
             if(Exist(nameof(KeepWithNext)))
             {
-                e.SetKeepWithNext(KeepWithNext);
+                e.SetKeepWithNext( (bool)Get(nameof(KeepWithNext), model) );
             }
 
             if(Exist(nameof(Margin)))
             {
-                e.SetMargin(Margin);
+                e.SetMargin( (float)Get(nameof(Margin), model));
             }
 
             if(Exist(nameof(MarginLeft)))
             {
-                e.SetMarginLeft(MarginLeft);
+                e.SetMarginLeft((float)Get(nameof(MarginLeft), model));
             }
 
             if (Exist(nameof(MarginRight)))
             {
-                e.SetMarginRight(MarginRight);
+                e.SetMarginRight((float)Get(nameof(MarginRight), model));
             }
 
             if (Exist(nameof(MarginTop)))
             {
-                e.SetMarginTop(MarginTop);
+                e.SetMarginTop((float)Get(nameof(MarginTop), model));
             }
 
             if (Exist(nameof(MarginBottom)))
             {
-                e.SetMarginBottom(MarginBottom);
+                e.SetMarginBottom((float)Get(nameof(MarginBottom), model));
             }
 
             if(Exist(nameof(MaxHeight)))
             {
-                e.SetMaxHeight(MaxHeight);
+                e.SetMaxHeight((float)Get(nameof(MaxHeight), model));
             }
 
             if (Exist(nameof(MaxWidth)))
             {
-                e.SetMaxWidth(MaxWidth);
+                e.SetMaxWidth((float)Get(nameof(MaxWidth), model));
             }
 
             if (Exist(nameof(MinHeight)))
             {
-                e.SetMinHeight(MinHeight);
+                e.SetMinHeight((float)Get(nameof(MinHeight), model));
             }
 
             if (Exist(nameof(MinWidth)))
             {
-                e.SetMinWidth(MinWidth);
+                e.SetMinWidth((float)Get(nameof(MinWidth), model));
             }
 
 
             if (Exist(nameof(Padding)))
             {
-                e.SetPadding(Padding);
+                e.SetPadding((float)Get(nameof(Padding), model));
             }
 
             if (Exist(nameof(PaddingLeft)))
             {
-                e.SetPaddingLeft(PaddingLeft);
+                e.SetPaddingLeft((float)Get(nameof(PaddingLeft), model));
             }
 
             if (Exist(nameof(PaddingRight)))
             {
-                e.SetPaddingRight(MarginRight);
+                e.SetPaddingRight((float)Get(nameof(PaddingRight), model));
             }
 
             if (Exist(nameof(PaddingTop)))
             {
-                e.SetPaddingTop(PaddingTop);
+                e.SetPaddingTop((float)Get(nameof(PaddingTop), model));
             }
 
             if (Exist(nameof(PaddingBottom)))
             {
-                e.SetPaddingBottom(PaddingBottom);
+                e.SetPaddingBottom((float)Get(nameof(PaddingBottom), model));
             }
 
             if(Exist(nameof(RotationAngle)))
             {
-                e.SetRotationAngle(RotationAngle);
+                e.SetRotationAngle((double)Get(nameof(RotationAngle), model));
             }
 
             if(Exist(nameof(SpacingRatio)))
             {
-                e.SetSpacingRatio(SpacingRatio);
+                e.SetSpacingRatio((float)Get(nameof(SpacingRatio), model));
             }
 
             if(Exist(nameof(VerticalAlignment)))
             {
-                e.SetVerticalAlignment((iText.Layout.Properties.VerticalAlignment)((int)VerticalAlignment));
+                e.SetVerticalAlignment((iText.Layout.Properties.VerticalAlignment)((int)(VerticalAlignment)Get(nameof(VerticalAlignment), model)));
             }
 
             if(Exist(nameof(Width)))
             {
-                e.SetWidth(Width);
+                e.SetWidth((float)Get(nameof(Width), model));
             }
 
         }

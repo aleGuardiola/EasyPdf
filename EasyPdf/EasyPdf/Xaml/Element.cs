@@ -10,200 +10,200 @@ namespace EasyPdf.Xaml
     {
         public Color BackgroundColor
         {
-            get => (Color)Get(nameof(BackgroundColor));
-            set => Set(nameof(BackgroundColor), value);
+            get => (Color)Get();
+            set => Set(value);
         }
 
         public float BackgroundOpacity
         {
-            get => (float)Get(nameof(BackgroundColor));
-            set => Set(nameof(BackgroundColor), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float BackgroundExtraLeft
         {
-            get => (float)Get(nameof(BackgroundExtraLeft));
-            set => Set(nameof(BackgroundExtraLeft), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float BackgroundExtraRight
         {
-            get => (float)Get(nameof(BackgroundExtraRight));
-            set => Set(nameof(BackgroundExtraRight), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float BackgroundExtraTop
         {
-            get => (float)Get(nameof(BackgroundExtraTop));
-            set => Set(nameof(BackgroundExtraTop), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public float BackgroundExtraBottom
         {
-            get => (float)Get(nameof(BackgroundExtraBottom));
-            set => Set(nameof(BackgroundExtraBottom), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public BaseDirection BaseDirection
         {
-            get => (BaseDirection)Get(nameof(BaseDirection));
-            set => Set(nameof(BaseDirection), value);
+            get => (BaseDirection)Get();
+            set => Set(value);
         }
 
         public bool Bold
         {
-            get => (bool)Get(nameof(Bold));
-            set => Set(nameof(Bold), value);
+            get => (bool)Get();
+            set => Set(value);
         }
 
         public Border Border
         {
-            get => (Border)Get(nameof(Border));
-            set => Set(nameof(Border), value);
+            get => (Border)Get();
+            set => Set(value);
         }
         
         public Border BorderBottom
         {
-            get => (Border)Get(nameof(BorderBottom));
-            set => Set(nameof(BorderBottom), value);
+            get => (Border)Get();
+            set => Set(value);
         }
         
         public BorderRadius BorderBottomLeftRadius
         {
-            get => (BorderRadius)Get(nameof(BorderBottomLeftRadius));
-            set => Set(nameof(BorderBottomLeftRadius), value);
+            get => (BorderRadius)Get();
+            set => Set(value);
         }
 
         public BorderRadius BorderBottomRightRadius
         {
-            get => (BorderRadius)Get(nameof(BorderBottomRightRadius));
-            set => Set(nameof(BorderBottomRightRadius), value);
+            get => (BorderRadius)Get();
+            set => Set(value);
         }
 
         public BorderRadius BorderRadius
         {
-            get => (BorderRadius)Get(nameof(BorderRadius));
-            set => Set(nameof(BorderRadius), value);
+            get => (BorderRadius)Get();
+            set => Set(value);
         }
         
         public Border BorderRight
         {
-            get => (Border)Get(nameof(BorderRight));
-            set => Set(nameof(BorderRight), value);
+            get => (Border)Get();
+            set => Set(value);
         }
 
         public Border BorderTop
         {
-            get => (Border)Get(nameof(BorderTop));
-            set => Set(nameof(BorderTop), value);
+            get => (Border)Get();
+            set => Set(value);
         }
 
         public BorderRadius BorderTopLeftRadius
         {
-            get => (BorderRadius)Get(nameof(BorderTopLeftRadius));
-            set => Set(nameof(BorderTopLeftRadius), value);
+            get => (BorderRadius)Get();
+            set => Set(value);
         }
 
         public BorderRadius BorderTopRightRadius
         {
-            get => (BorderRadius)Get(nameof(BorderTopRightRadius));
-            set => Set(nameof(BorderTopRightRadius), value);
+            get => (BorderRadius)Get();
+            set => Set(value);
         }
 
         public float CharacterSpacing
         {
-            get => (float)Get(nameof(CharacterSpacing));
-            set => Set(nameof(CharacterSpacing), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public Rectangle FixedPosition
         {
-            get => (Rectangle)Get(nameof(FixedPosition));
-            set => Set(nameof(FixedPosition), value);
+            get => (Rectangle)Get();
+            set => Set(value);
         }
 
         public Font Font
         {
-            get => (Font)Get(nameof(Font));
-            set => Set(nameof(Font), value);
+            get => (Font)Get();
+            set => Set(value);
         }
 
         public Color FontColor
         {
-            get => (Color)Get(nameof(FontColor));
-            set => Set(nameof(FontColor), value);
+            get => (Color)Get();
+            set => Set(value);
         }
 
         public float FontColorOpacity
         {
-            get => (float)Get(nameof(FontColorOpacity));
-            set => Set(nameof(FontColorOpacity), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public bool FontKerning
         {
-            get => (bool)Get(nameof(FontKerning));
-            set => Set(nameof(FontKerning), value);
+            get => (bool)Get();
+            set => Set(value);
         }
 
         public float FontSize
         {
-            get => (float)Get(nameof(FontSize));
-            set => Set(nameof(FontSize), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public HorizontalAlignment HorizontalAlignment
         {
-            get => (HorizontalAlignment)Get(nameof(HorizontalAlignment));
-            set => Set(nameof(HorizontalAlignment), value);
+            get => (HorizontalAlignment)Get();
+            set => Set(value);
         }
 
         public bool Italic
         {
-            get => (bool)Get(nameof(Italic));
-            set => Set(nameof(Italic), value);
+            get => (bool)Get();
+            set => Set(value);
         }
         
         public bool LineThrough
         {
-            get => (bool)Get(nameof(LineThrough));
-            set => Set(nameof(LineThrough), value);
+            get => (bool)Get();
+            set => Set(value);
         }
 
         public float Opacity
         {
-            get => (float)Get(nameof(Opacity));
-            set => Set(nameof(Opacity), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public Rectangle RelativePosition
         {
-            get => (Rectangle)Get(nameof(RelativePosition));
-            set => Set(nameof(RelativePosition), value);
+            get => (Rectangle)Get();
+            set => Set(value);
         }
 
         public Color StrokeColor
         {
-            get => (Color)Get(nameof(StrokeColor));
-            set => Set(nameof(StrokeColor), value);
+            get => (Color)Get();
+            set => Set(value);
         }
 
         public float StrokeWidth
         {
-            get => (float)Get(nameof(StrokeWidth));
-            set => Set(nameof(StrokeWidth), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public TextAlignment TextAlignment
         {
-            get => (TextAlignment)Get(nameof(TextAlignment));
-            set => Set(nameof(TextAlignment), value);
+            get => (TextAlignment)Get();
+            set => Set(value);
         }
 
         public int TextRenderingMode
         {
-            get => (int)Get(nameof(TextRenderingMode));
-            set => Set(nameof(TextRenderingMode), value);
+            get => (int)Get();
+            set => Set(value);
         }
 
         public IList<Underline> Underlines
@@ -213,8 +213,8 @@ namespace EasyPdf.Xaml
         
         public float WordSpacing
         {
-            get => (float)Get(nameof(WordSpacing));
-            set => Set(nameof(WordSpacing), value);
+            get => (float)Get();
+            set => Set(value);
         }
 
         public Element()
@@ -222,29 +222,30 @@ namespace EasyPdf.Xaml
             Underlines = new List<Underline>();
         }
 
-        protected void BuildElement<T>(ElementPropertyContainer<T> e) where T : IPropertyContainer
+        protected void BuildElement<T>(ElementPropertyContainer<T> e, object model) where T : IPropertyContainer
         {
+
             //Set the background color
             if (Exist(nameof(BackgroundColor)))
             {
-                var color = Helpers.TypeConverter.ToITextColor(BackgroundColor);
+                var color = Helpers.TypeConverter.ToITextColor((Color)Get(nameof(BackgroundColor), model));
                 if (Exist(nameof(BackgroundOpacity)))
                 {
                     if (Exist(nameof(BackgroundExtraLeft))
-                        || Exist(nameof(BackgroundExtraRight))
+                        || Exist(nameof(BackgroundExtraRight)) 
                         || Exist(nameof(BackgroundExtraTop))
                         || Exist(nameof(BackgroundExtraBottom)))
                     {
-                        var right = Exist(nameof(BackgroundExtraRight)) ? BackgroundExtraRight : 0f;
-                        var left = Exist(nameof(BackgroundExtraRight)) ? BackgroundExtraRight : 0f;
-                        var top = Exist(nameof(BackgroundExtraRight)) ? BackgroundExtraRight : 0f;
-                        var bottom = Exist(nameof(BackgroundExtraRight)) ? BackgroundExtraRight : 0f;
+                        var right = Exist(nameof(BackgroundExtraRight)) ? (float)Get(nameof(BackgroundExtraRight), model) : 0f;
+                        var left = Exist(nameof(BackgroundExtraLeft)) ? (float)Get(nameof(BackgroundExtraLeft), model) : 0f;
+                        var top = Exist(nameof(BackgroundExtraTop)) ? (float)Get(nameof(BackgroundExtraTop), model) : 0f;
+                        var bottom = Exist(nameof(BackgroundExtraBottom)) ? (float)Get(nameof(BackgroundExtraBottom), model) : 0f;
 
-                        e.SetBackgroundColor(color, BackgroundOpacity, left, top, right, bottom);
+                        e.SetBackgroundColor(color, (float)Get(nameof(BackgroundOpacity), model), left, top, right, bottom);
                     }
                     else
                     {
-                        e.SetBackgroundColor(color, BackgroundOpacity);
+                        e.SetBackgroundColor(color, (float)Get(nameof(BackgroundOpacity), model));
                     }
                 }
                 else
@@ -256,11 +257,11 @@ namespace EasyPdf.Xaml
             //Base Direction
             if(Exist(nameof(BaseDirection)))
             {
-                e.SetBaseDirection((iText.Layout.Properties.BaseDirection)((int)BaseDirection));
+                e.SetBaseDirection((iText.Layout.Properties.BaseDirection)((int)(BaseDirection)Get(nameof(BaseDirection), model)));
             }
 
             //Bold
-            if(Exist(nameof(Bold)) && Bold)
+            if(Exist(nameof(Bold)) && (bool)Get(nameof(Bold), model))
             {
                 e.SetBold();
             }
@@ -271,13 +272,14 @@ namespace EasyPdf.Xaml
             //Character Spacing
             if(Exist(nameof(CharacterSpacing)))
             {
-                e.SetCharacterSpacing(CharacterSpacing);
+                e.SetCharacterSpacing((float)Get(nameof(CharacterSpacing), model));
             }
 
             //Fixed Position
             if(Exist(nameof(FixedPosition)))
             {
-                e.SetFixedPosition(FixedPosition.Left, FixedPosition.Bottom, FixedPosition.Width);
+                var fixedPosition = (Rectangle)Get(nameof(FixedPosition), model);
+                e.SetFixedPosition(fixedPosition.Left, fixedPosition.Bottom, fixedPosition.Width);
             }
 
             //Font
@@ -286,10 +288,10 @@ namespace EasyPdf.Xaml
             //FontColor
             if(Exist(nameof(FontColor)))
             {
-                var color = Helpers.TypeConverter.ToITextColor(FontColor);
+                var color = Helpers.TypeConverter.ToITextColor((Color)Get(nameof(FontColor), model));
                 if (Exist(nameof(FontColorOpacity)))
                 {
-                    e.SetFontColor(color, FontColorOpacity);
+                    e.SetFontColor(color, (float)Get(nameof(FontColorOpacity), model));
                 }
                 else
                 {
@@ -300,31 +302,31 @@ namespace EasyPdf.Xaml
             //Font Kerning
             if(Exist(nameof(FontKerning)))
             {
-                e.SetFontKerning(FontKerning ? iText.Layout.Properties.FontKerning.YES
+                e.SetFontKerning((bool)Get(nameof(FontKerning), model) ? iText.Layout.Properties.FontKerning.YES
                     : iText.Layout.Properties.FontKerning.NO);
             }
 
             //Font Size
             if(Exist(nameof(FontSize)))
             {
-                e.SetFontSize(FontSize);
+                e.SetFontSize((float)Get(nameof(FontSize), model));
             }
 
 
             //Horizontal Aligment
             if(Exist(nameof(HorizontalAlignment)))
             {
-                e.SetHorizontalAlignment((iText.Layout.Properties.HorizontalAlignment)((int)HorizontalAlignment));
+                e.SetHorizontalAlignment((iText.Layout.Properties.HorizontalAlignment)((int)(HorizontalAlignment)Get(nameof(HorizontalAlignment), model)));
             }
 
             //Italic
-            if(Exist(nameof(Italic)) && Italic)
+            if(Exist(nameof(Italic)) && (bool)Get(nameof(Italic), model))
             {
                 e.SetItalic();
             }
 
             //Line Trought
-            if(Exist(nameof(LineThrough)) && LineThrough)
+            if(Exist(nameof(LineThrough)) && (bool)Get(nameof(LineThrough), model))
             {
                 e.SetLineThrough();
             }
@@ -332,33 +334,34 @@ namespace EasyPdf.Xaml
             //Opacity
             if(Exist(nameof(Opacity)))
             {
-                e.SetOpacity(Opacity);
+                e.SetOpacity((float)Get(nameof(Opacity), model));
             }
 
             //Relative Position
             if(Exist(nameof(RelativePosition)))
             {
-                e.SetRelativePosition(RelativePosition.Left, RelativePosition.Top, RelativePosition.Right, RelativePosition.Bottom);
+                var relativePosition = (Rectangle)Get(nameof(RelativePosition), model);
+                e.SetRelativePosition(relativePosition.Left, relativePosition.Top, relativePosition.Right, relativePosition.Bottom);
             }
                 
             if(Exist(nameof(StrokeColor)))
             {
-                e.SetStrokeColor(Helpers.TypeConverter.ToITextColor(StrokeColor));
+                e.SetStrokeColor(Helpers.TypeConverter.ToITextColor((Color)Get(nameof(StrokeColor), model)));
             }
 
             if(Exist(nameof(StrokeWidth)))
             {
-                e.SetStrokeWidth(StrokeWidth);
+                e.SetStrokeWidth((float)Get(nameof(StrokeWidth), model));
             }
 
             if(Exist(nameof(TextAlignment)))
             {
-                e.SetTextAlignment((iText.Layout.Properties.TextAlignment)((int)TextAlignment));
+                e.SetTextAlignment((iText.Layout.Properties.TextAlignment)((int)(TextAlignment)Get(nameof(TextAlignment), model)));
             }
 
             if(Exist(nameof(TextRenderingMode)))
             {
-                e.SetTextRenderingMode(TextRenderingMode);
+                e.SetTextRenderingMode((int)Get(nameof(TextRenderingMode), model));
             }
 
             //Underlines
@@ -366,8 +369,9 @@ namespace EasyPdf.Xaml
             //Word spacing
             if(Exist(nameof(WordSpacing)))
             {
-                e.SetWordSpacing(WordSpacing);
+                e.SetWordSpacing((float)Get(nameof(WordSpacing), model));
             }
+
         }
 
     }

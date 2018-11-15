@@ -15,38 +15,37 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            var startTime = DateTime.Now;            
+            var startTime = DateTime.Now;
+            var pdf = new Example();
+            Console.WriteLine("parseTime: {0}", (DateTime.Now - startTime).TotalSeconds);
 
-            //Parallel.ForEach(new bool[10000],(v)=>{
-            //    var example = new Example();
-            //    example.Model = new TestModel()
-            //    {
-            //        Header = new HeaderModel()
-            //        {
-            //            Title = "Bass Insurance",
-            //            Subtitle = "Form 1"
-            //        },
-            //        Name = "Alejandro",
-            //        BackgroundColor = Color.Blue
-            //    };
-            //    example.GetPdf();
-            //});
-            
-            for(int i = 0; i < 10000; i++)
+            var model = new TestModel()
             {
-                var example = new Example();
-                example.Model = new TestModel()
+                BackgroundColor = Color.Blue,
+                Header = new HeaderModel()
                 {
-                    Header = new HeaderModel()
-                    {
-                        Title = "Bass Insurance",
-                        Subtitle = "Form 1"
-                    },
-                    Name = "Alejandro",
-                    BackgroundColor = Color.Blue
-                };
-                example.GetPdf();
-            }
+                    Title = "BassUw",
+                    Subtitle = "Best Underwriters"
+                },
+                Name = "Alejo Guardiola"
+            };
+
+            //while(
+            //!Parallel.ForEach(new bool[1000], (e) =>
+            //{
+            //    pdf.GetPdf(model);
+            //}).IsCompleted) { }
+
+            pdf.GetPdf(model);
+            
+            for(int i = 0; i < 100; i++)
+            pdf.GetPdf(model);
+            
+
+            //for (int i = 0; i < 100; i++)
+            //    pdf.GetPdf(model);
+
+            // File.WriteAllBytes(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "test.pdf"), pdfStream.ToArray());
 
             Console.WriteLine("totalTime: {0}", (DateTime.Now - startTime).TotalSeconds);
             Console.Read();

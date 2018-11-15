@@ -31,8 +31,7 @@ namespace EasyPdf.MarkupExtensions
             var targetObject = target.TargetObject as PdfXamlObject;
             var targetProperty = target.TargetProperty as PropertyInfo;
 
-            targetObject.Bindings.Add((targetProperty.Name, _member));
-
+            targetObject.Set(targetProperty.Name, _member, targetProperty.PropertyType);
             return null;
         }
 

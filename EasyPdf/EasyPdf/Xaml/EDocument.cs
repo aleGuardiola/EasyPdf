@@ -9,21 +9,14 @@ namespace EasyPdf.Xaml
     [Portable.Xaml.Markup.ContentPropertyAttribute("Children")]
     public class EDocument : PdfXamlObjectContainer<EPage>
     {
-        public Color BackgroundColor
+        protected internal override void OnBuild(Document pdfDoc, object model)
         {
-            get => (Color)Get(nameof(BackgroundColor));
-            set => Set(nameof(BackgroundColor), value);
-        }
+            model = GetModel(model);
 
-        protected internal override void Build(Document pdfDoc)
-        {
-            if (Exist(nameof(BackgroundColor)))
-                pdfDoc.SetBackgroundColor(Helpers.TypeConverter.ToITextColor(BackgroundColor));
-                       
             if (Children.Count > 0)
                 Children[0].FirstPage = true;
 
-            base.Build(pdfDoc);
+            base.OnBuild(pdfDoc, model);
         }
     }
 }

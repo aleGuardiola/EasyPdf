@@ -13,16 +13,16 @@ namespace EasyPdf.Xaml
     {
         internal bool FirstPage = false; 
 
-        protected internal override void Build(Document pdfDoc)
+        protected internal override void OnBuild(Document pdfDoc, object model)
         {
-                        
+            model = GetModel(model);            
             if(!FirstPage)
             {
                 var page = new AreaBreak(AreaBreakType.NEXT_PAGE);
                 pdfDoc.Add(page);
             }
            // iText.Layout.Element.LineSeparator
-            base.Build(pdfDoc);
+            base.OnBuild(pdfDoc, model);
         }
     }
 }

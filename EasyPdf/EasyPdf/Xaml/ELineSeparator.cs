@@ -8,11 +8,11 @@ namespace EasyPdf.Xaml
 {
     public class ELineSeparator : EBlockElement
     {
-        protected internal override void Build(Document pdfDoc)
+        protected internal override void OnBuild(Document pdfDoc, object model)
         {
-           // var lineSperator = new LineSeparator()
-
-            base.Build(pdfDoc);
+            // var lineSperator = new LineSeparator()
+            model = GetModel(model);
+            base.OnBuild(pdfDoc, model);
         }
     }
 }
