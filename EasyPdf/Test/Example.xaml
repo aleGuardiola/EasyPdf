@@ -7,6 +7,12 @@
         <local:Header Model="Header">
             
         </local:Header>
+        <EImage 
+            Source="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg" 
+            Width="200"
+            >
+            
+        </EImage>
         <EParagraph>
             <EText BackgroundColor="{e:Use Member=BackgroundColor}" FontColor="Red" Text="{e:Use Member=Name}"></EText>
             <EText FontColor="Blue" Bold="True" Italic="True" Text=" World"></EText>

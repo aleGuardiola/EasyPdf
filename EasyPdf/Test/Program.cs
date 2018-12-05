@@ -30,22 +30,16 @@ namespace Test
                 Name = "Alejo Guardiola"
             };
 
-            //while(
-            //!Parallel.ForEach(new bool[1000], (e) =>
-            //{
-            //    pdf.GetPdf(model);
-            //}).IsCompleted) { }
-
-            pdf.GetPdf(model);
+            //File.WriteAllBytes("", pdf.GetPdf(model));
             
-            for(int i = 0; i < 100; i++)
-            pdf.GetPdf(model);
+            //for(int i = 0; i < 10000; i++)
+            //pdf.GetPdf(model);
             
 
             //for (int i = 0; i < 100; i++)
             //    pdf.GetPdf(model);
 
-            // File.WriteAllBytes(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "test.pdf"), pdfStream.ToArray());
+            File.WriteAllBytes(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "test.pdf"), pdf.GetPdf(model));
 
             Console.WriteLine("totalTime: {0}", (DateTime.Now - startTime).TotalSeconds);
             Console.Read();

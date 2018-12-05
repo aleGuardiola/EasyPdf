@@ -5,6 +5,9 @@ using iText.Layout;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+#if DEBUG
+using System.Diagnostics;
+#endif
 using System.IO;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -86,7 +89,8 @@ namespace EasyPdf.Xaml
         public byte[] GetPdf(object model)
         {
 #if DEBUG
-            var startBuilding = DateTime.Now;
+            var stpWatch = new Stopwatch();
+            stpWatch.Start();
 #endif
 
             using (MemoryStream stream = new MemoryStream())
@@ -99,7 +103,8 @@ namespace EasyPdf.Xaml
                     document.Close();
                 }
 #if DEBUG
-                Console.WriteLine("buildingTime: {0}", (DateTime.Now - startBuilding).TotalSeconds);
+                Console.WriteLine("buildingTime: {0}", stpWatch.Elapsed);
+                stpWatch.Stop();                
 #endif
                 return stream.ToArray();
             }
