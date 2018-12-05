@@ -164,28 +164,127 @@ namespace EasyPdf.Xaml
             var imageSource = (ImageSource)Get(nameof(Source), model);
             var image = new Image(ImageDataFactory.Create(imageSource.GetBytes()));
 
-            var width = Exist(nameof(Width)) ? (float)Get(nameof(Width), model) : 0f;
-            image.SetWidth(width);
+            if(Exist(nameof(Width)))
+            {
+                var width = (float)Get(nameof(Width), model);
+                image.SetWidth(width);
+            }
+
+            if (Exist(nameof(Height)))
+            {
+                var height = (float)Get(nameof(Height), model);
+                image.SetHeight(Height);
+            }
+
+            if(Exist(nameof(HorizontalScale)) || Exist(nameof(VerticalScale)))
+            {
+                var horizontalScale = Exist(nameof(HorizontalScale)) ?(float)Get(nameof(HorizontalScale), model) : 1f;
+                var verticalScale = Exist(nameof(VerticalScale)) ? (float)Get(nameof(VerticalScale), model) : 1f;
+                image.Scale(horizontalScale, verticalScale);
+            }
             
-            var height = Exist(nameof(Height)) ? (float)Get(nameof(Height), model) : 0f;
-            image.SetHeight(height);
+            if(Exist(nameof(AutoScale)))
+            {
+                var autoScale = (bool)Get(nameof(AutoScale), model);
+                image.SetAutoScale(autoScale);
+            }
 
-            var horizontalScale = Exist(nameof(HorizontalScale)) ? (float)Get(nameof(HorizontalScale), model) : 1f;
-            var verticalScale = Exist(nameof(VerticalScale)) ? (float)Get(nameof(VerticalScale), model) : 1f;
-            image.Scale(horizontalScale, verticalScale);
+            if(Exist(nameof(AutoScaleHeight)))
+            {
+                var autoScaleHeight = (bool)Get(nameof(AutoScaleHeight), model);
+                image.SetAutoScaleHeight(autoScaleHeight);
+            }
 
-            var autoScale = Exist(nameof(AutoScale)) ? (bool)Get(nameof(AutoScale), model) : false;
-            image.SetAutoScale(autoScale);
+            if(Exist(nameof(AutoScaleWidth)))
+            {
+                var autoScaleWidth = (bool)Get(nameof(AutoScaleWidth), model);
+                image.SetAutoScaleWidth(autoScaleWidth);
+            }
 
-            var autoScaleHeight = Exist(nameof(AutoScaleHeight)) ? (bool)Get(nameof(AutoScaleHeight), model) : false;
-            image.SetAutoScaleHeight(autoScaleHeight);
+            if(Exist(nameof(FixedPositionLeft)) || Exist(nameof(FixedPositionBottom)))
+            {
+                var fixedPositionLeft = Exist(nameof(FixedPositionLeft)) ? (float)Get(nameof(FixedPositionLeft), model) : 0f;
+                var fixedPositionBottom = Exist(nameof(FixedPositionBottom)) ? (float)Get(nameof(FixedPositionBottom), model) : 0f;
+                image.SetFixedPosition(fixedPositionLeft, fixedPositionBottom);
+            }
 
-            var autoScaleWidth = Exist(nameof(AutoScaleWidth)) ? (bool)Get(nameof(AutoScaleWidth), model) : false;
-            image.SetAutoScaleHeight(autoScaleHeight);
+            if(Exist(nameof(MarginBottom)))
+            {
+                var marginBottom = (float)Get(nameof(MarginBottom), model);
+                image.SetMarginBottom(marginBottom);
+            }
+            
+            if (Exist(nameof(MarginTop)))
+            {
+                var marginTop = (float)Get(nameof(MarginTop), model);
+                image.SetMarginTop(marginTop);
+            }
 
-            var fixedPositionLeft = Exist(nameof(FixedPositionLeft)) ? (float)Get(nameof(FixedPositionLeft), model) : 0f;
-            var fixedPositionBottom = Exist(nameof(FixedPositionBottom)) ? (float)Get(nameof(FixedPositionBottom), model) : 0f;
-            image.SetFixedPosition(fixedPositionLeft, fixedPositionBottom);
+            if (Exist(nameof(MarginLeft)))
+            {
+                var marginLeft = (float)Get(nameof(MarginLeft), model);
+                image.SetMarginLeft(marginLeft);
+            }
+            
+            if (Exist(nameof(MarginRight)))
+            {
+                var marginRight = (float)Get(nameof(MarginRight), model);
+                image.SetMarginRight(marginRight);
+            }
+
+            if(Exist(nameof(MaxHeight)))
+            {
+                var maxHeight = (float)Get(nameof(MaxHeight), model);
+                image.SetMaxHeight(maxHeight);
+            }
+            
+            if (Exist(nameof(MaxWidth)))
+            {
+                var maxWidth = (float)Get(nameof(MaxWidth), model);
+                image.SetMaxWidth(maxWidth);
+            }
+
+            if (Exist(nameof(MinHeight)))
+            {
+                var minHeight = (float)Get(nameof(MinHeight), model);
+                image.SetMinHeight(minHeight);
+            }
+
+            if (Exist(nameof(MinWidth)))
+            {
+                var minWidth = (float)Get(nameof(MinWidth), model);
+                image.SetMinWidth(minWidth);
+            }
+
+            if (Exist(nameof(PaddingBottom)))
+            {
+                var paddingBottom = (float)Get(nameof(PaddingBottom),model);
+                image.SetPaddingBottom(paddingBottom);
+            }
+            
+            if (Exist(nameof(PaddingTop)))
+            {
+                var paddingTop = (float)Get(nameof(PaddingTop), model);
+                image.SetPaddingTop(paddingTop);
+            }
+            
+            if (Exist(nameof(PaddingRight)))
+            {
+                var paddingRight = (float)Get(nameof(PaddingRight), model);
+                image.SetPaddingRight(paddingRight);
+            }
+            
+            if (Exist(nameof(PaddingLeft)))
+            {
+                var paddingLeft = (float)Get(nameof(PaddingLeft), model);
+                image.SetPaddingLeft(paddingLeft);
+            }
+            
+            if (Exist(nameof(RadiansRotationAngle)))
+            {
+                var radiansRotationAngle = (double)Get(nameof(RadiansRotationAngle), model);
+                image.SetRotationAngle(radiansRotationAngle);
+            }
 
             pdfDoc.Add(image);
         }
