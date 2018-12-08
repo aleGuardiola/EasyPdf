@@ -58,3 +58,7 @@ var pdf = new EDocument()
 ```
 ##### Resulting pdf:
 [Click here](test.pdf)
+
+## Projects used:
+* [Portable.Xaml](https://github.com/cwensley/Portable.Xaml)
+* [ITextSharp 7](https://github.com/itext/itext7-dotnet)
