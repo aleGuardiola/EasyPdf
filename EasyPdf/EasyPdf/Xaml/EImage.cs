@@ -1,4 +1,5 @@
-﻿using iText.IO.Image;
+﻿using EasyPdf.Core;
+using iText.IO.Image;
 using iText.Layout;
 using iText.Layout.Element;
 using System;
@@ -152,7 +153,7 @@ namespace EasyPdf.Xaml
            
         }
 
-        protected internal override void OnBuild(Document pdfDoc, object model)
+        protected internal override void OnBuild(PdfElementContainer pdfDoc, object model)
         {
             model = GetModel(model);
 

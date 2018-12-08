@@ -2,6 +2,7 @@
 using EasyPdf.Exceptions;
 using iText.Kernel.Pdf;
 using iText.Layout;
+using iText.Layout.Element;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -88,30 +89,32 @@ namespace EasyPdf.Xaml
 
         public byte[] GetPdf(object model)
         {
-#if DEBUG
-            var stpWatch = new Stopwatch();
-            stpWatch.Start();
-#endif
-
             using (MemoryStream stream = new MemoryStream())
             {
                 using (var writer = new PdfWriter(stream))
                 {
+                    var elementContainer = new PdfElementContainer();
+                    OnBuild(elementContainer, model);
+
                     var pdfDoc = new PdfDocument(writer);
                     var document = new Document(pdfDoc);
-                    OnBuild(document, model);
+                    foreach(var e in elementContainer)
+                    {
+                        var type = e.GetType();
+
+                        if(type == typeof(IBlockElement))                        
+                            document.Add((IBlockElement)e);                        
+                        else if(type == typeof(AreaBreak))                        
+                            document.Add((AreaBreak)e);                        
+                        else                        
+                            document.Add((Image)e);                        
+                    }
+
                     document.Close();
                 }
-#if DEBUG
-                Console.WriteLine("buildingTime: {0}", stpWatch.Elapsed);
-                stpWatch.Stop();                
-#endif
+
                 return stream.ToArray();
             }
-
-
-            
-
         }
         
         public object GetModel(object model)
@@ -143,7 +146,7 @@ namespace EasyPdf.Xaml
             }
         }
 
-        protected internal virtual void OnBuild(Document pdfDoc, object model)
+        protected internal virtual void OnBuild(PdfElementContainer pdfDoc, object model)
         {
             
         }  

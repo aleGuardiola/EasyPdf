@@ -1,4 +1,5 @@
-﻿using iText.Layout;
+﻿using EasyPdf.Core;
+using iText.Layout;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +15,7 @@ namespace EasyPdf.Xaml
             Children = new List<T>();
         }
         
-        protected internal override void OnBuild(Document pdfDoc, object model)
+        protected internal override void OnBuild(PdfElementContainer pdfDoc, object model)
         {
             model = GetModel(model);
             base.OnBuild(pdfDoc, model);

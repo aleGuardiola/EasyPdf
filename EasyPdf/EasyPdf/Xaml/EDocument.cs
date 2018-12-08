@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using EasyPdf.Core;
 using iText.Layout;
 
 namespace EasyPdf.Xaml
@@ -9,7 +10,7 @@ namespace EasyPdf.Xaml
     [Portable.Xaml.Markup.ContentPropertyAttribute("Children")]
     public class EDocument : PdfXamlObjectContainer<EPage>
     {
-        protected internal override void OnBuild(Document pdfDoc, object model)
+        protected internal override void OnBuild(PdfElementContainer pdfDoc, object model)
         {
             model = GetModel(model);
 

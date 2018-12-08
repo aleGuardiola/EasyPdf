@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.Text;
+using EasyPdf.Core;
 using iText.Layout;
 using iText.Layout.Element;
 using Portable.Xaml.Markup;
@@ -67,7 +68,7 @@ namespace EasyPdf.Xaml
             return text;
         }
 
-        protected internal override void OnBuild(Document pdfDoc, object model)
+        protected internal override void OnBuild(PdfElementContainer pdfDoc, object model)
         {               
             base.OnBuild(pdfDoc, model);
         }

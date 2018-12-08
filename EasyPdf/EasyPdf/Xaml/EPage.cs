@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using EasyPdf.Core;
 using iText.Kernel.Pdf;
 using iText.Layout;
 using iText.Layout.Element;
@@ -13,7 +14,7 @@ namespace EasyPdf.Xaml
     {
         internal bool FirstPage = false; 
 
-        protected internal override void OnBuild(Document pdfDoc, object model)
+        protected internal override void OnBuild(PdfElementContainer pdfDoc, object model)
         {
             model = GetModel(model);            
             if(!FirstPage)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using EasyPdf.Collections;
+using EasyPdf.Core;
 using iText.Layout;
 using iText.Layout.Element;
 using Portable.Xaml.Markup;
@@ -18,7 +19,7 @@ namespace EasyPdf.Xaml
             Content = new ChildrenContainerList<EText>(this);
         }
 
-        protected internal override void OnBuild(Document pdfDoc, object model)
+        protected internal override void OnBuild(PdfElementContainer pdfDoc, object model)
         {
             model = GetModel(model);
             base.OnBuild(pdfDoc, model);

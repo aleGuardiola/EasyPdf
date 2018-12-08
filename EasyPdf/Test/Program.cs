@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using EasyPdf;
 using EasyPdf.Xaml;
+using iText.Layout;
 using Portable.Xaml;
 
 namespace Test
@@ -29,15 +30,6 @@ namespace Test
                 },
                 Name = "Alejo Guardiola"
             };
-
-            //File.WriteAllBytes("", pdf.GetPdf(model));
-            
-            //for(int i = 0; i < 10000; i++)
-            //pdf.GetPdf(model);
-            
-
-            //for (int i = 0; i < 100; i++)
-            //    pdf.GetPdf(model);
 
             File.WriteAllBytes(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "test.pdf"), pdf.GetPdf(model));
 
