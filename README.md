@@ -57,4 +57,4 @@ var pdf = new EDocument()
             };
 ```
 ##### Resulting pdf:
-[embed]test.pdf[/embed]
+[Click here](test.pdf)
