@@ -101,10 +101,10 @@ namespace EasyPdf.Xaml
                     foreach(var e in elementContainer)
                     {
                         var type = e.GetType();
-
-                        if(type == typeof(IBlockElement))                        
+                        
+                        if(typeof(IBlockElement).IsAssignableFrom(type))                        
                             document.Add((IBlockElement)e);                        
-                        else if(type == typeof(AreaBreak))                        
+                        else if(typeof(AreaBreak).IsAssignableFrom(type))                        
                             document.Add((AreaBreak)e);                        
                         else                        
                             document.Add((Image)e);                        

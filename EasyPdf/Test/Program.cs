@@ -17,8 +17,34 @@ namespace Test
         static void Main(string[] args)
         {
             var startTime = DateTime.Now;
-            var pdf = new Example();
+            //var pdf = new Example();
             Console.WriteLine("parseTime: {0}", (DateTime.Now - startTime).TotalSeconds);
+
+            var pdf = new EDocument()
+            {
+                Children =
+                {
+                    new EPage()
+                    {
+                        Children =
+                        {
+                            new EParagraph()
+                            {
+                                Content =
+                                {
+                                   new EText()
+                                   {
+                                       Text = "Hello Easy Pdf",
+                                       FontColor = Color.Red,
+                                       Bold = true,
+                                       FontSize = 12
+                                   }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
 
             var model = new TestModel()
             {
@@ -46,7 +72,7 @@ namespace Test
 
     public class TestModel
     {
-        public HeaderModel Header{ get; set; }
+        public HeaderModel Header { get; set; }
 
         public string Name { get; set; }
         public Color BackgroundColor { get; set; }

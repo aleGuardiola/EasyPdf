@@ -1,35 +1,7 @@
-﻿<EDocument xmlns="https://github.com/aleGuardiola/EasyPdf"            
-           xmlns:local="clr-namespace:Test;assembly=Test"  
-           xmlns:e="https://github.com/aleGuardiola/EasyPdf/Extensions"
-           xmlns:x="clr-namespace:Portable.Xaml.Markup;assembly=Portable.Xaml"
-           >
-    <EPage>
-        <local:Header Model="Header">
-            
-        </local:Header>
-        <EImage 
-            Source="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg" 
-            Width="200"
-            >
-            
-        </EImage>
+﻿<EDocument xmlns="https://github.com/aleGuardiola/EasyPdf" >
+    <EPage>        
         <EParagraph>
-            <EText BackgroundColor="{e:Use Member=BackgroundColor}" FontColor="Red" Text="{e:Use Member=Name}"></EText>
-            <EText FontColor="Blue" Bold="True" Italic="True" Text=" World"></EText>
-            <EText FontColor="Pink" Bold="True" Italic="True" Text="!!!!!!"></EText>
+            <EText FontColor="Red" Bold="true" FontSize="12" >Hello Easy Pdf</EText>            
         </EParagraph> 
-    </EPage>
-    <EPage>
-        <EParagraph Height="100" >
-            <EText 
-                Bold="True" 
-                BackgroundColor="Black" 
-                FontSize="50"
-                FontColor="White"                
-                >                
-            </EText>
-        </EParagraph>
-    </EPage>
-    
+    </EPage>    
 </EDocument>
-<!--{Binding Source={x:Static local:Example.Name}}-->
