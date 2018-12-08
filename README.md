@@ -1,13 +1,13 @@
 # EasyPdf
-EasyPdf is a library to make easier pdf generation using XAML
-or a Strong object tree. It use ITextSharp 7.0 as the engine that
+EasyPdf is a library to make easier pdf generation using XAML.
+It use ITextSharp 7.0 as the engine that
 generate the resulting pdf file, supporting (or planning to support)
 all the elements available in ITextSharp 7.0 with some additions
-like customs Layout Manager and an easy flexibility.
+like customs Layout Manager.
 
 ### Getting Starting
 For now just clone or download the library and reference it
-to your project there is plans to make a nuget package for the future.
+to your project I have plans to make a nuget package for the future.
 This library target .net standard that make it compatible with
 any .net platform.
 
